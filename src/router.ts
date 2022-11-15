@@ -12,12 +12,15 @@ const upload = multer({
     destination(_req, _file, callback) {
       callback(null, path.resolve(__dirname, '..', 'uploads'));
     },
+    filename(_req, file, callback) {
+      callback(null, `${Date.now()}-${file.originalname}`);
+    },
   }),
 });
 
+// const upload = multer({ dest: path.resolve(__dirname, '..', 'uploads') });
+
 // List Categories
-
-
 router.get('/categories', categoriesController.listCategories);
 
 // Create Category
