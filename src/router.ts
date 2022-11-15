@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { categoriesController } from './app/controllers/categoriesController';
+import { productsController } from './app/controllers/productsController';
 
 export const router = Router();
 
@@ -12,7 +13,7 @@ router.get('/categories', categoriesController.listCategories);
 router.post('/categories', categoriesController.createCategory);
 
 // List Products
-router.get('/products', (req, res) => res.json('test'));
+router.get('/products', productsController.listProducts);
 
 // Create Product
 router.post('/products', (req, res) => res.json('test'));
