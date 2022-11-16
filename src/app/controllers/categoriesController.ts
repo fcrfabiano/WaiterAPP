@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
+
 import { listCategories } from '../useCases/categories/listCategories';
 import { createCategory } from '../useCases/categories/createCategory';
+import { listProductsByCategory } from '../useCases/categories/listProductsByCategory';
 
 export const categoriesController = {
   listCategories: async (req: Request, res: Response) => {
@@ -15,4 +17,11 @@ export const categoriesController = {
 
     return res.status(201).json(category);
   },
+  listProductsByCategory: async (req: Request, res: Response) => {
+    const { categoryId } = req.params;
+
+    const products = await listProductsByCategory(categoryId);
+
+    return res.status(200).json(products);
+  }
 };

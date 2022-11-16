@@ -33,7 +33,7 @@ router.get('/products', productsController.listProducts);
 router.post('/products', upload.single('image'), productsController.createProduct);
 
 // Get Products By Category
-router.post('/categories/:categoryId/products', (req, res) => res.json('test'));
+router.get('/categories/:categoryId/products', categoriesController.listProductsByCategory);
 
 // List Orders
 router.get('/orders', (req, res) => res.json('test'));
