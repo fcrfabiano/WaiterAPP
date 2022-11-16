@@ -3,6 +3,7 @@ import multer from 'multer';
 import path from 'node:path';
 
 import { categoriesController } from './app/controllers/categoriesController';
+import { ordersController } from './app/controllers/ordersController';
 import { productsController } from './app/controllers/productsController';
 
 export const router = Router();
@@ -36,13 +37,13 @@ router.post('/products', upload.single('image'), productsController.createProduc
 router.get('/categories/:categoryId/products', categoriesController.listProductsByCategory);
 
 // List Orders
-router.get('/orders', (req, res) => res.json('test'));
+router.get('/orders', ordersController.listOrders);
 
 // Create Order
-router.post('/orders', (req, res) => res.json('test'));
+router.post('/orders', ordersController.createOrder);
 
 // Change Order Status
-router.patch('/orders/:orderId', (req, res) => res.json('test'));
+router.patch('/orders/:orderId', ordersController.changeOrderStatus);
 
 // Delete/Cancel order
 router.delete('/orders/:orderId', (req, res) => res.json('test'));

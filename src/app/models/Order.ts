@@ -16,7 +16,7 @@ export const Order = model(
       type: Date,
       default: Date.now,
     },
-    product: {
+    products: {
       type: [{
         product: {
           type: Schema.Types.ObjectId,
