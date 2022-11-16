@@ -10,6 +10,7 @@ mongoose.connect(
 ).then(() => {
   const app = express();
   const port = 3001;
+  app.use('/images', express.static('uploads'));
   app.use(express.json());
   app.use(router);
   app.use(handleErrors);
