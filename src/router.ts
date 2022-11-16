@@ -46,4 +46,4 @@ router.post('/orders', ordersController.createOrder);
 router.patch('/orders/:orderId', ordersController.changeOrderStatus);
 
 // Delete/Cancel order
-router.delete('/orders/:orderId', (req, res) => res.json('test'));
+router.delete('/orders/:orderId', ordersController.cancelOrder);
