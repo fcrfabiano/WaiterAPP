@@ -1,9 +1,6 @@
 import { Category } from '../../models/Category';
+import { CreateCategoryDTO } from './DTO/CreateCategoryDTO';
 
-interface CreateCategoryDTO {
-  name: string;
-  icon: string;
-}
 export async function createCategory({ name, icon }: CreateCategoryDTO) {
   const category = await Category.create({
     name,
