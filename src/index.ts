@@ -9,12 +9,12 @@ import 'dotenv/config';
 import { router } from './router';
 import { handleErrors } from './app/middlewares/handleErrors';
 
+const app = express();
+const server = http.createServer(app);
+export const io = new Server(server);
+
 mongoose.connect(process.env.MONGOOSE || '').then(() => {
   const port = 3001;
-
-  const app = express();
-  const server = http.createServer(app);
-  const io = new Server(server);
 
   app.use((request, response, next) => {
     response.setHeader('Access-Control-Allow-Origin', '*');
