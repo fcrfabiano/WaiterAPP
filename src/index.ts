@@ -2,6 +2,7 @@ import path from 'node:path';
 import express from 'express';
 import http from 'node:http';
 import mongoose from 'mongoose';
+import { Server } from 'socket.io';
 import 'express-async-errors';
 import 'dotenv/config';
 
@@ -13,6 +14,7 @@ mongoose.connect(process.env.MONGOOSE || '').then(() => {
 
   const app = express();
   const server = http.createServer(app);
+  const io = new Server(server);
 
   app.use((request, response, next) => {
     response.setHeader('Access-Control-Allow-Origin', '*');
