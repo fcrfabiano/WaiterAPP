@@ -1,16 +1,22 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import path from 'node:path';
 import 'express-async-errors';
 
 import { router } from './router';
 import { handleErrors } from './app/middlewares/handleErrors';
 
-mongoose.connect(
-  'mongodb+srv://test:test@cluster0.pn5i2xu.mongodb.net/?retryWrites=true&w=majority'
-).then(() => {
+mongoose.connect(process.env.MONGOOSE || '').then(() => {
   const app = express();
   const port = 3001;
-  app.use('/images', express.static('uploads'));
+
+  app.use((request, response, next) => {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Methods', '*');
+    response.setHeader('Access-Control-Allow-Headers', '*');
+    next();
+  });
+  app.use('/images', express.static(path.resolve(__dirname, '..', 'uploads')));
   app.use(express.json());
   app.use(router);
   app.use(handleErrors);
