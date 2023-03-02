@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import path from 'node:path';
 import 'express-async-errors';
+import 'dotenv/config';
 
 import { router } from './router';
 import { handleErrors } from './app/middlewares/handleErrors';
