@@ -21,7 +21,7 @@ Rode a documentação:
 
     npm run doc
 
-Para ver ao backend acesse: [Documentação](http://localhost:3001/)
+Para ver o backend acesse: [Back-End](http://localhost:3001/)
 Para ver a documentação acesse: [Documentação](http://localhost:3000/)
 
 # Categorias
