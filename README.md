@@ -43,3 +43,4 @@ Para ver a documentação acesse: [Documentação](http://localhost:3000/)
 - É possível deletar um pedido.
 - É possível atualizar o status do pedido.
 - É possível listar todos os pedidos.
+- Quando um novo pedido é cadastrado, o back-end envia uma notificação via websocket para o front-end.
